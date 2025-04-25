@@ -1,3 +1,4 @@
+/* Estilos existentes do App (mantidos) */
 .App {
   text-align: center;
 }
@@ -35,4 +36,371 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Novos estilos para a Lista de Pessoas - Tema Escuro */
+.lista-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.lista-container h1 {
+  color: #6bb9f0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Botão de atualizar */
+.refresh-button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.refresh-button:hover {
+  background-color: #3498db;
+  transform: translateY(-1px);
+}
+
+/* Estados vazios e carregamento */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background-color: #252525;
+  border-radius: 8px;
+  color: #95a5a6;
+  border: 1px dashed #444;
+}
+
+.empty-state svg {
+  stroke: #555;
+}
+
+.empty-state p {
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.loader {
+  border: 4px solid #333;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+/* Tabela */
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.tabela-pessoas {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #252525;
+}
+
+.tabela-pessoas th {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #34495e;
+}
+
+.tabela-pessoas td {
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+  color: #e0e0e0;
+}
+
+.tabela-pessoas tr:hover td {
+  background-color: #2d2d2d;
+}
+
+.tabela-pessoas tr:last-child td {
+  border-bottom: none;
+}
+
+/* Linhas alternadas */
+.even-row {
+  background-color: #252525;
+}
+
+.odd-row {
+  background-color: #2a2a2a;
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.status-badge.inactive {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .lista-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  .tabela-pessoas {
+    font-size: 0.875rem;
+  }
+  
+  .tabela-pessoas th, 
+  .tabela-pessoas td {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .refresh-button {
+    width: 100%;
+  }
+  
+  .empty-state {
+    padding: 2rem 1rem;
+  }
+  
+  .empty-state p {
+    text-align: center;
+  }
+
+}
+
+.delete-by-id {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.delete-by-id input {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.delete-button {
+  background-color: #e3342f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #cc1f1a;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.back-button {
+  background-color: #6b7280;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #4b5563;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0 5px;
+  padding: 5px;
+  transition: transform 0.2s;
+}
+
+.icon-button:hover {
+  transform: scale(1.2);
+}
+
+.edit-button {
+  color: #3b82f6; /* Azul para editar */
+}
+
+.delete-button {
+  color: #ef4444; /* Vermelho para excluir */
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Escurecer mais o fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+  background: #f9fafb; /* Alterando para um tom de cinza claro */
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Suavizar a sombra */
+}
+
+h2 {
+  text-align: center;
+  color: #333; /* Cor do título */
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  color: #333; /* Cor dos rótulos */
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input-group select {
+  -webkit-appearance: none; /* Remove estilo padrão de alguns navegadores */
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zY3JlZW5zY3JpcHQtMjAwMCw1PTUyY2lkbD0ie2N0YT0zMzc2c2o5cmw3fL4OIdt21tU6w=='); /* seta personalizada */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #ef4444;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #2563eb;
+}
+
+.cancel-button:hover {
+  background-color: #dc2626;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
