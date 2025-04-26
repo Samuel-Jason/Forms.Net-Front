@@ -143,7 +143,7 @@ function App() {
             </div>
           </div>
 
-          <div className="form-section">
+          {/* <div className="form-section">
             <h2>Localização</h2>
             <div className="form-row">
               <div className="form-group">
@@ -197,7 +197,7 @@ function App() {
                 </select>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="form-section">
             <div className="form-group checkbox-group">
