@@ -12,41 +12,32 @@ jobs:
       - name: Passo 01 - Baixar a base de código
         uses: actions/checkout@v4
 
-      - name: Passo 02 - Criar a imagem dos Microsserviços
-        run: |
-          # Navegue até o diretório com o Dockerfile (se necessário)
-          # cd path/to/your/dockerfile
+      - name: Passo 02 - Autenticação no DockerHub
+        uses: docker/login-action@v2.2.0
+        with: 
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PWD }}
 
-          # Construa a imagem Docker
-          docker build -t seu_usuario_dockerhub/nome_da_imagem:tag .
+      - name: Passo 03 - Criar a imagem dos Microsserviços
+        run: docker build -t seu_usuario_dockerhub/nome_da_imagem:tag .
 
-      - name: Passo 03 - Subir as imagens para o repositório de imagens Docker (Dockerhub)
+      - name: Passo 04 - Subir as imagens para o repositório de imagens Docker (Dockerhub)
         run: |
-          # Faça login no Docker Hub
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-
-          # Envie a imagem
           docker push seu_usuario_dockerhub/nome_da_imagem:tag
 
   CD:
     runs-on: ubuntu-latest
-    needs: [CI] # Garante que o job de CI seja concluído com sucesso antes de executar o CD
+    needs: [CI]
     steps:
       - name: Passo 01 - Baixar a base de código
         uses: actions/checkout@v4
 
       - name: Passo 02 - Criar a imagem dos Microsserviços
         run: |
-          # Navegue até o diretório com o Dockerfile (se necessário)
-          # cd path/to/your/dockerfile
-
-          # Construa a imagem Docker
-          docker build -t seu_usuario_dockerhub/nome_da_imagem:latest . # Usando a tag 'latest' para CD
+          docker build -t seu_usuario_dockerhub/nome_da_imagem:latest .
 
       - name: Passo 03 - Subir as imagens para o repositório de imagens Docker (Dockerhub)
         run: |
-          # Faça login no Docker Hub
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-
-          # Envie a imagem
           docker push seu_usuario_dockerhub/nome_da_imagem:latest
